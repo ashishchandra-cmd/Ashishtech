@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block logout%} <a href="{% url 'admin_logout_views'%}" class="btn btn-info" > Logout</a>{% endblock%}
+{% block mainbody %}
+         <h1 style="background-color: lightcoral; border: 2px solid rgb(129, 42, 42); text-align: center;">
+            Welcome to Sathya Technolologies</h1>    
+             <table border="2" style="margin-left: 300px; font-size: 25px;">
+                 <tr>
+                     <th><a href="{% url 'insert_new_curese_show'%}" class="btn btn-info">Schedule New Class</a></th> <br>
+                     <th><a href="{% url 'view_all_scheduled_show' %}" class="btn btn-info">View All Scheduled Classes</a></th>
+                 </tr>
+                 
+             </table>
+
+             
+                     
+{% endblock %}

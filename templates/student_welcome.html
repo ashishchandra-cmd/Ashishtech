@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% block title %}student {% endblock %}
+{% block signUp%} Welcome {{user.username}}{% endblock%}
+{% block logout%} <a href="{% url 'student_home_show'%}" class="btn btn-info" > Logout</a>{% endblock%}
+
+{% block mainbody %}
+    <h1 style="text-align: center;">Online Course Details</h1>
+    <table border="2 "  style="margin-left: 250px; font-size: 25px;">
+        <tr><th><a href="{%  url 'enrol_course_show'%}"> Enrole the Course</a></th>
+            <th><a href="{% url 'viewEnroll_show'%}">View all the Enrolled  Course</a></th>
+             
+        </tr>
+    </table>
+    <br>
+    <table border="2" style="margin-left: 250px; float: left; " class=" btn btn-secondary">
+                
+        <tr><th>Course_Name</th> 
+        <th>Faculty</th> 
+         <th>class_date</th>  
+         <th>class_time</th>  
+         <th>Fee</th>  
+          <th>Duration</th> 
+          <th >Enrole</th>
+          
+         </tr> 
+          {% for course in course_list%}    
+         <tr>
+            <td>{{course.Course_Name}}</td>
+            <td>{{course.Faculty}}</td> 
+            <td>{{course.class_date}}</td>
+            <td>{{course.class_time}}</td>
+            <td>{{course.Fee}}</td>
+            <td>{{course.Duration}} days</td>
+            <td> <a href="{%  url 'enrol_course_show'%}" class="btn btn-primary">Yes</a> </td>
+            
+         </tr>
+         {% endfor%}
+    </table>
+    
+        
+          
+            
+    
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% block logout%} <a href="{% url 'admin_logout_views'%}" class="btn btn-info" > Logout</a>{% endblock%}
+{% block mainbody %}
+         <h1 style="background-color: lightcoral; border: 2px solid rgb(129, 42, 42); text-align: center;">
+            Welcome to Sathya Technolologies</h1>    
+            
+                     
+                     <h3 style="text-align: center;">View All Scheduled Classes</h3>
+                 
+                
+            <a href="{% url 'admin_welcome_views'%}" class="btn btn-primary">Back</a>
+            <table border="2" style="margin-left: 50px; float: left; " class=" btn btn-secondary">
+                
+                <tr><th>Course_Name</th> 
+                <th>Faculty</th> 
+                 <th>class_date</th>  
+                 <th>class_time</th>  
+                 <th>Fee</th>  
+                  <th>Duration</th> 
+                  <th colspan="2">Action</th>
+                  
+                 </tr> 
+                  {% for course in course_list%}    
+                 <tr>
+                    <td>{{course.Course_Name}}</td>
+                    <td>{{course.Faculty}}</td> 
+                    <td>{{course.class_date}}</td>
+                    <td>{{course.class_time}}</td>
+                    <td>{{course.Fee}}</td>
+                    <td>{{course.Duration}} days</td>
+                    <td> <a href="/update/{{course.id}}">Update</a> </td>
+                    <td> <a href="{% url 'delete_curese_show' course.id%}" class="btn btn-danger">
+                       Delete</a> </td>
+                 </tr>
+                 {% endfor%}
+            </table>
+            
+             
+                     
+{% endblock %}

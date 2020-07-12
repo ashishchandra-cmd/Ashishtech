@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block logout%} <a href="{% url 'admin_logout_views'%}" class="btn btn-info" > Logout</a>{% endblock%}
+{% block mainbody %}
+
+<form action="" method="post" style="margin-left: 50px;" class="btn btn-info">
+    {% csrf_token%}
+    Course_Name: <input type="text" name="Course_Name" value="{{course_itm.Course_Name}}"> <br>
+    Faculty: <input type="text" name='Faculty' value="{{course_itm.Faculty}}"> <br>
+    class_date: <input type="date"  name="class_date" value="{{course_itm.class_date}}"> <br>
+    class_time: <input type="time" name="class_time " value="{{course_itm.class_time}}"> <br>
+    Fee: <input type="number" name="Fee" value="{{course_itm.Fee}}"> <br>
+    Duration: <input type="number" name="Duration" value="{{course_itm.Duration}}"> <br>
+    <input type="submit" value="Update">
+
+</form>
+
+
+{% endblock%}

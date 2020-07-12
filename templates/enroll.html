@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block title %}student {% endblock %}
+{% block signUp%} Welcome {{user.username}}{% endblock%}
+{% block logout%} <a href="{% url 'student_home_show'%}" class="btn btn-info" > Logout</a>{% endblock%}
+
+{% block mainbody %}
+    <h1 style="text-align: center;">Online Course Details</h1>
+    <table border="2 "  style="margin-left: 380px; font-size: 25px;">
+        <tr><th> Enrole the Course here</th>
+
+        </tr>
+    </table>
+    <a href="{% url 'student_welcome_show'%}"  class="btn btn-primary" style="margin-left: 50px; ">Back</a>
+    <br>
+       <form action="" method="POST" style="margin-left: 50px;" class="btn btn-info">
+     {% csrf_token%}
+     {{form.as_p}}
+     <input type="submit" value="Enroll">
+     
+
+ </form>
+
+
+
+
+
+
+{% endblock %}

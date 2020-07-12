@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% block title %}student {% endblock %}
+{% block signUp%} Welcome {{user.username}}{% endblock%}
+{% block logout%} <a href="{% url 'student_home_show'%}" class="btn btn-info" > Logout</a>{% endblock%}
+
+{% block mainbody %}
+    <h1 style="text-align: center;">Online Course Details</h1>
+    <table border="2 "  style="margin-left: 250px; font-size: 25px;">
+        <tr><th><a href="{%  url 'enrol_course_show'%}"> Enrole the Course</a></th>
+            <th><a href="{% url 'viewEnroll_show'%}">View all the Enrolled  Course</a></th>
+              
+        </tr>
+    </table>
+    <br>
+    <a href="{% url 'student_welcome_show'%}"  class="btn btn-primary" style="margin-left: 50px; ">Back</a>
+    <table border="2" style="margin-left: 250px; float: left; " class=" btn btn-secondary">
+                
+        <tr><th>Course_Name</th> 
+        <th>Phne number</th> 
+        <th>Action</th>
+         
+          
+         </tr> 
+          {% for enrol in enrol_list%}    
+         <tr>
+            <td>{{enrol.Name}}</td>
+            <td>{{enrol.phone}}</td> 
+            
+            <td> <a href="{%  url 'cancle_enrol_show' enrol.id%}" class="btn btn-primary">Cancle</a> </td>
+            
+         </tr>
+         {% endfor%}
+    </table>
+    
+        
+          
+            
+    
+{% endblock %}

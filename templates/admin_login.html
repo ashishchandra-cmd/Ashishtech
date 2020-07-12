@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% block title %}admin Login {% endblock %}
+{% block mainbody %}
+          <style>
+              #logindiv{
+                  margin: auto;
+                  border: 2px solid yellow;
+                  height: 200px;
+                  width: 300px;
+                  padding-top: 50px;
+                  background-color: thistle;
+              }
+          </style>
+          <div id="logindiv">
+           <form action="" method="POST">
+                  {% csrf_token %}
+               Username: <input type="text" name='username'> <br> <br>
+               Password:<input type="password" name='password'><br> <br>
+                       <input type="submit" value="Login" class="btn btn-primary" style="margin-left: 100px; ">
+           </form>    
+        </div>
+
+{% endblock %}

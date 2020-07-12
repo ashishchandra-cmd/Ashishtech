@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block mainbody %}
+   <form action="" method="POST" style="margin-left: 50px;">
+        {% csrf_token %}
+    <table>
+        <tr>
+            <th>Name</th> <td> <input type="text" name='username' required></td>
+        </tr>
+        <tr>
+            <th>Phone</th> <td> <input type="number" name='contact' required></td>
+        </tr>
+        
+        <tr>
+            <th>Email</th> <td> <input type="email" name='email' required></td>
+        </tr>
+        <tr>
+            <th></th> <td> <input type="password" name='password' required></td>
+        </tr>
+        <tr>
+            <th></th> <td> <input type="submit" value="Register"> </td>
+        </tr>
+        <tr>
+            <th></th> <td> <a href="{% url 'student_home_show'%}">Back</a> </td>
+        </tr>
+    </table>
+   </form>
+  
+{% endblock%}

@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% block title %}Student Login {% endblock %}
+{% block mainbody %}
+          <style>
+              #logindiv{
+                  margin: auto;
+                  border: 2px solid yellow;
+                  height: 200px;
+                  width: 300px;
+                  padding-top: 50px;
+                  background-color: thistle;
+              }
+              h3{
+                  text-align: center;
+              }
+              a{
+                  margin-left: 100px;
+              }
+          </style>
+          <h3 >
+              Welcome to Login Page
+          </h2>
+          <a href="{% url 'student_home_show'%}" class="btn btn-info">Back</a>
+
+          <div id="logindiv">
+           <form action="" method="POST">
+                  {% csrf_token %}
+               Username: <input type="text" name='username'> <br> <br>
+               Password:<input type="password" name='password'><br> <br>
+                       <input type="submit" value="Login" class="btn btn-primary" style="margin-left: 100px; ">
+           </form>  
+          
+          
+        </div>
+
+{% endblock %}
