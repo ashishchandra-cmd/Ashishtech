@@ -34,7 +34,9 @@ urlpatterns = [
 
     path('enrol_course/',views.enrol_coures,name='enrol_course_show'),
     path('viewEnroll/', views.viewEnrolldetails, name='viewEnroll_show'),
-    path('cancle/<int:id>/',views.cancle_enrol, name='cancle_enrol_show')
+    path('cancle/<int:id>/',views.cancle_enrol, name='cancle_enrol_show'),
+    path('phoneurl/', views.phoneurl_view),
+    path('emailurl/',views.emailurl_view)
 
     
 

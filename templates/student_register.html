@@ -7,17 +7,19 @@
             <th>Name</th> <td> <input type="text" name='username' required></td>
         </tr>
         <tr>
-            <th>Phone</th> <td> <input type="number" name='contact' required></td>
+            <th>Phone</th> <td> <input type="number" id="id_phone" onblur="displayphone()" name='contact' required></td>
+                           <td> <span id="sp_phone"></span></td>
         </tr>
         
         <tr>
-            <th>Email</th> <td> <input type="email" name='email' required></td>
+            <th>Email</th> <td> <input type="email" id="id_email" onblur="displayemail()" name='email' required></td>
+                            <td> <span id="id_sp_email"></span></td>
         </tr>
         <tr>
             <th></th> <td> <input type="password" name='password' required></td>
         </tr>
         <tr>
-            <th></th> <td> <input type="submit" value="Register"> </td>
+            <th></th> <td> <input type="submit"  id='b1' value="Register"> </td>
         </tr>
         <tr>
             <th></th> <td> <a href="{% url 'student_home_show'%}">Back</a> </td>

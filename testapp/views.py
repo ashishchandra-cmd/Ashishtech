@@ -104,4 +104,28 @@ def viewEnrolldetails(request):
 def cancle_enrol(request,id):
     enrol_itm=StudentEnrollCourse.objects.get(id=id)
     enrol_itm.delete()
-    return redirect('/student_welcome')    
+    return redirect('/student_welcome')
+
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from django.http import JsonResponse
+
+@method_decorator(csrf_exempt,name='dispatch')
+def phoneurl_view(request):
+    pnum = request.POST.get('cname')
+    try:
+        Student_register.objects.get(contact_number=pnum)
+        data={'error':'phone number taken'}
+    except Student_register.DoesNotExist:
+        data={'message':'phone number avliable'}
+    return JsonResponse(data)
+
+@method_decorator(csrf_exempt,name='dispatch')
+def emailurl_view(request):
+    em=request.POST.get('emailval')
+    try:
+        Student_register.objects.get(email=em)
+        data = {'error': 'email  taken'}
+    except Student_register.DoesNotExist:
+        data = {'message': 'email  avliable'}
+    return JsonResponse(data)
