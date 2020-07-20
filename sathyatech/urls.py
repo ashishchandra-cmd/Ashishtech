@@ -36,7 +36,7 @@ urlpatterns = [
     path('viewEnroll/', views.viewEnrolldetails, name='viewEnroll_show'),
     path('cancle/<int:id>/',views.cancle_enrol, name='cancle_enrol_show'),
     path('phoneurl/', views.phoneurl_view),
-    path('emailurl/',views.emailurl_view)
+    path('curseurl/',views.curseurl_view),
 
     
 

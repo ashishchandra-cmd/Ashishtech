@@ -26,23 +26,5 @@ function displayphone()
                           }
                        }
                }
-  } 
-function displayemail() {
-        var em=document.getElementById('id_email').value;
-        var val='emailval='+em;
-        var request=new XMLHttpRequest();
-        request.onreadystatechange=showemail;
-        request.open("POST","http://127.0.0.1:8000/emailurl/",true);
-        request.getResponseHeader('Content-Type', 'application/x-www-form-urlencoded');
-        request.send(val);
-        function showemail() {
-             if (request.readyState==4){
-                 var str=request.responseText;
-                 var json_data=JSON.parse(str);
-                 alert(json_data.error);
-                 alert(json_data.message);
-             }
+  }
 
-        }
-
-}

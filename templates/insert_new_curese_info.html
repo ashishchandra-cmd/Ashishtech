@@ -1,11 +1,50 @@
 {% extends 'base.html'%}
 {% block logout%} <a href="{% url 'admin_logout_views'%}" class="btn btn-info" > Logout</a>{% endblock%}
 {% block mainbody %}
+ <script>
+      window.onload=initAll;
+      var course;
+      function initAll() {
+            course=document.getElementById('id_Course_Name');
+            course.onblur=displaycourse;
+      };
+
+      function displaycourse(){
+        var cm=document.getElementById('id_Course_Name').value;
+        var val='cousreval='+cm;
+        var request=new XMLHttpRequest();
+        request.onreadystatechange=showecourse;
+        request.open("POST","http://127.0.0.1:8000/curseurl/",true);
+        request.getResponseHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.send(val);
+        function showecourse() {
+             if (request.readyState==4){
+                 var str=request.responseText;
+                 var json_data=JSON.parse(str);
+
+                 if(json_data.error=='course name  taken'){
+                     document.getElementById('id_sp').innerText =json_data.error;
+                     document.getElementById('b1').disabled=true;
+                   }
+                 else{
+                     document.getElementById('id_sp').innerText = json_data.message;
+                     document.getElementById('b1').disabled=false;
+                 }
+             }
+
+        }
+
+   }
+ </script>
+
+
+
   <div style="margin-left: 20px;"><a href="{% url 'admin_welcome_views'%}" class="btn btn-primary">Back</a></div>
          <form action="" method="POST" style="margin-left: 50px;" class="btn btn-info">
+            <span id="id_sp"></span>
              {% csrf_token%}
              {{form.as_p}}
-             <input type="submit" value="Register">
+             <input type="submit" id="b1" value="Register">
 
          </form>
 

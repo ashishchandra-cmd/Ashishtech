@@ -121,11 +121,11 @@ def phoneurl_view(request):
     return JsonResponse(data)
 
 @method_decorator(csrf_exempt,name='dispatch')
-def emailurl_view(request):
-    em=request.POST.get('emailval')
+def curseurl_view(request):
+    cm=request.POST.get('cousreval')
     try:
-        Student_register.objects.get(email=em)
-        data = {'error': 'email  taken'}
-    except Student_register.DoesNotExist:
-        data = {'message': 'email  avliable'}
+        Course_table.objects.get(Course_Name=cm)
+        data = {'error': 'course name  taken'}
+    except Course_table.DoesNotExist:
+        data = {'message': 'course name  avliable'}
     return JsonResponse(data)
